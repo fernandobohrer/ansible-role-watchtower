@@ -1,0 +1,16 @@
+---
+apt_cache_valid_time: 3600
+
+deployment_user: "{{ ansible_user }}"
+deployment_directory: /opt/docker/watchtower
+
+container_name: watchtower
+container_hostname: watchtower
+container_timezone: America/Sao_Paulo
+container_restart_policy: unless-stopped
+
+# https://containrrr.dev/watchtower/arguments/#cleanup
+watchtower_cleanup: true
+
+# https://containrrr.dev/watchtower/arguments/#scheduling
+watchtower_schedule: 00 15 04 * * * # Once a day at 04:15:00

@@ -1,0 +1,19 @@
+---
+role_name_check: 1
+
+dependency:
+  name: shell
+  command: ansible-galaxy install -r meta/requirements.yml -p $MOLECULE_EPHEMERAL_DIRECTORY/roles
+
+provisioner:
+  name: ansible
+
+driver:
+  name: ec2
+
+platforms:
+  - name: debian-12
+    image: ami-00402f0bdf4996822 # debian-12 amd64 @ us-east-1
+    instance_type: t3a.small
+    ssh_user: admin
+    subnet_id: ${SUBNET_ID}

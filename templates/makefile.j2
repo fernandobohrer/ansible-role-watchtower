@@ -1,0 +1,9 @@
+.DEFAULT_GOAL := up
+
+.PHONY: up
+up:
+	docker compose --env-file {{ __container_environment_file }} up -d
+
+.PHONY: down
+down:
+	docker compose --env-file {{ __container_environment_file }} down

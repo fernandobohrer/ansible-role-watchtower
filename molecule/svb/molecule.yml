@@ -1,0 +1,20 @@
+---
+role_name_check: 1
+
+dependency:
+  name: shell
+  command: ansible-galaxy install -r meta/requirements.yml -p $MOLECULE_EPHEMERAL_DIRECTORY/roles
+
+provisioner:
+  name: ansible
+
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+
+platforms:
+  - name: debian-12
+    box: debian/bookworm64
+    cpus: 2
+    memory: 2048

@@ -1,0 +1,6 @@
+---
+roles:
+  - name: fernandobohrer.docker
+    src: https://github.com/fernandobohrer/ansible-role-docker.git
+    scm: git
+    version: main

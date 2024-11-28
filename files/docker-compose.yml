@@ -1,0 +1,13 @@
+---
+services:
+  watchtower:
+    container_name: ${CONTAINER_NAME}
+    environment:
+      TZ: ${CONTAINER_TIMEZONE}
+      WATCHTOWER_CLEANUP: ${WATCHTOWER_CLEANUP}
+      WATCHTOWER_SCHEDULE: ${WATCHTOWER_SCHEDULE}
+    hostname: ${CONTAINER_HOSTNAME}
+    image: ${CONTAINER_IMAGE}
+    restart: ${CONTAINER_RESTART_POLICY}
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

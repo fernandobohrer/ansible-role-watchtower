@@ -1,0 +1,55 @@
+---
+- name: Get the primary group associated with the ansible_user
+  ansible.builtin.command: getent group {{ ansible_user }}
+  register: ansible_user_group
+  changed_when: false
+
+- name: Set the deployment_group fact
+  ansible.builtin.set_fact:
+    deployment_group: "{{ ansible_user_group.stdout.split(':')[0] }}"
+
+- name: Ensure make package is installed
+  ansible.builtin.apt:
+    name: make
+    state: present
+    update_cache: true
+    cache_valid_time: "{{ apt_cache_valid_time }}"
+
+- name: Ensure deployment directory exists
+  ansible.builtin.file:
+    path: "{{ deployment_directory }}"
+    state: directory
+    owner: "{{ deployment_user }}"
+    group: "{{ deployment_group }}"
+    mode: "755"
+
+- name: Deploy templates
+  ansible.builtin.template:
+    src: "{{ item.source }}"
+    dest: "{{ item.destination }}"
+    owner: "{{ deployment_user }}"
+    group: "{{ deployment_group }}"
+    mode: "644"
+    backup: false
+  with_items:
+    - { source: makefile.j2, destination: "{{ deployment_directory }}/makefile" }
+    - { source: watchtower.env.j2, destination: "{{ deployment_directory }}/{{ __container_environment_file }}" }
+
+- name: Deploy configuration files
+  ansible.builtin.copy:
+    src: "{{ item }}"
+    dest: "{{ deployment_directory }}/{{ item }}"
+    owner: "{{ deployment_user }}"
+    group: "{{ deployment_group }}"
+    mode: "644"
+    backup: false
+  with_items:
+    - docker-compose.yml
+
+- name: Ensure watchtower container is started
+  community.docker.docker_compose_v2:
+    project_src: "{{ deployment_directory }}"
+    env_files: "{{ __container_environment_file }}"
+    project_name: "{{ container_name }}"
+    remove_orphans: true
+    state: present

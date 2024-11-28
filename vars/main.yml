@@ -1,0 +1,4 @@
+---
+__container_image: containrrr/watchtower:latest
+
+__container_environment_file: watchtower.env
