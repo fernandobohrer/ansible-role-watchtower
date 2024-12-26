@@ -2,8 +2,9 @@
 role_name_check: 1
 
 dependency:
-  name: shell
-  command: ansible-galaxy install -r meta/requirements.yml -p $MOLECULE_EPHEMERAL_DIRECTORY/roles
+  name: galaxy
+  options:
+    ignore-errors: true
 
 provisioner:
   name: ansible

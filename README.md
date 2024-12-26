@@ -18,7 +18,7 @@ Check `defaults/main.yml`.
 
 ## 🧰 Dependencies
 
-Check `meta/requirements.yml`.
+Check `meta/main.yml`.
 
 ## ⚡ Quick start
 
