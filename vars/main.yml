@@ -1,4 +1,7 @@
 ---
-__container_image: containrrr/watchtower:latest
+__watchtower__role_dependencies:
+  - make
 
-__container_environment_file: watchtower.env
+__watchtower__container_image: containrrr/watchtower:latest
+
+__watchtower__container_env_file: watchtower.env

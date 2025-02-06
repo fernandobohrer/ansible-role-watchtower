@@ -2,8 +2,8 @@
 
 .PHONY: up
 up:
-	docker compose --env-file {{ __container_environment_file }} up -d
+	docker compose --env-file {{ __watchtower__container_env_file }} up -d
 
 .PHONY: down
 down:
-	docker compose --env-file {{ __container_environment_file }} down
+	docker compose --env-file {{ __watchtower__container_env_file }} down
