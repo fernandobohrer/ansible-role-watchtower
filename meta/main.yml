@@ -14,7 +14,6 @@ galaxy_info:
         - jammy
         - noble
   galaxy_tags: []
-
 dependencies:
   - role: fernandobohrer.docker
     src: https://github.com/fernandobohrer/ansible-role-docker.git
