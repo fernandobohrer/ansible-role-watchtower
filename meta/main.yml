@@ -18,4 +18,4 @@ dependencies:
   - role: fernandobohrer.docker_engine
     src: https://github.com/fernandobohrer/ansible-role-docker-engine.git
     scm: git
-    version: main
+    version: "1.0.0"
