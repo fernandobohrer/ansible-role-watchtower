@@ -9,6 +9,10 @@ watchtower__deployment_user: "{{ ansible_user }}"
 # The path to which the docker container files will be deployed to.
 watchtower__deployment_directory: /opt/docker/watchtower
 
+# https://docs.docker.com/reference/api/engine/
+# https://docs.docker.com/reference/cli/docker/version/
+watchtower__docker_api_version: 1.44
+
 watchtower__container_name: watchtower
 watchtower__container_hostname: watchtower
 watchtower__container_timezone: America/Sao_Paulo
