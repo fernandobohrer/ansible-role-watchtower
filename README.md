@@ -14,11 +14,11 @@ This role deploys [watchtower][01] and its dependencies and configures the solut
 
 ## 📑 Role Variables
 
-Check [here][02].
+Check [defaults/main.yml][02].
 
 ## 🧰 Dependencies
 
-Check [here][03].
+Check [meta/main.yml][03].
 
 ## ⚡ Quick start
 
@@ -42,7 +42,7 @@ From watchtower's [documentation][04]:
 
 If you need to exclude some containers from the update process, set the `com.centurylinklabs.watchtower.enable` label to `false` on the container you want to remove from the update process.
 
-For clarity, this should be set on the containers you wish to be ignored from the update process. This is *not set* on the watchtower container itself. For more details, please check [here][05].
+For clarity, this should be set on the containers you wish to be ignored from the update process. This is *not set* on the watchtower container itself. For more details, please check [watchtower documentation][05].
 
 ## ⚙️ Compatibility
 
