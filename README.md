@@ -6,9 +6,9 @@ An Ansible role that deploys [watchtower][01] to keep your containerized workloa
 
 From watchtower's [GitHub repository][01]:
 
-*With watchtower you can update the running version of your containerized app simply by pushing a new image to Docker Hub or your own image registry.*
+_With watchtower you can update the running version of your containerized app simply by pushing a new image to Docker Hub or your own image registry._
 
-*Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.*
+_Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially._
 
 This role deploys [watchtower][01] and its dependencies and configures the solution to keep your containerized workloads up-to-date automatically.
 
@@ -38,11 +38,11 @@ An example of how integrate this role to an Ansible playbook can be found here:
 
 From watchtower's [documentation][04]:
 
-*By default, watchtower will watch all containers. However, sometimes only some containers should be updated.*
+_By default, watchtower will watch all containers. However, sometimes only some containers should be updated._
 
 If you need to exclude some containers from the update process, set the `com.centurylinklabs.watchtower.enable` label to `false` on the container you want to remove from the update process.
 
-For clarity, this should be set on the containers you wish to be ignored from the update process. This is *not set* on the watchtower container itself. For more details, please check [watchtower documentation][05].
+For clarity, this should be set on the containers you wish to be ignored from the update process. This is _not set_ on the watchtower container itself. For more details, please check [watchtower documentation][05].
 
 ## ⚙️ Compatibility
 
